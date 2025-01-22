@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PlusIcon } from "@heroicons/react/24/solid";
 
 function TodoInput({ onAdd }) {
   const [text, setText] = useState("");
@@ -37,7 +38,7 @@ function TodoInput({ onAdd }) {
           type="submit"
           disabled={!text.trim()}
           style={{
-            padding: "var(--spacing-md) var(--spacing-lg)",
+            padding: "var(--spacing-md)",
             border: "none",
             borderRadius: "var(--radius)",
             backgroundColor: "var(--primary)",
@@ -50,7 +51,7 @@ function TodoInput({ onAdd }) {
             gap: "var(--spacing-sm)",
           }}
         >
-          <span style={{ fontSize: "1.2rem" }}>+</span>
+          <PlusIcon style={{ width: "1.2rem", height: "1.2rem" }} />
           Add
         </button>
       </div>

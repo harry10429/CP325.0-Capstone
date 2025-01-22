@@ -1,3 +1,9 @@
+/**
+ * Todo model definition
+ * Defines the schema for todo items in MongoDB
+ * @module models/todo
+ */
+
 const mongoose = require("mongoose");
 
 /**

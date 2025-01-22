@@ -1,3 +1,5 @@
+import { CheckIcon, TrashIcon } from "@heroicons/react/24/solid";
+
 function TodoItem({ todo, onToggle, onDelete }) {
   return (
     <div
@@ -20,8 +22,8 @@ function TodoItem({ todo, onToggle, onDelete }) {
       <button
         onClick={() => onToggle(todo.id)}
         style={{
-          width: "20px",
-          height: "20px",
+          width: "24px",
+          height: "24px",
           borderRadius: "50%",
           border: `2px solid ${
             todo.completed ? "var(--success)" : "var(--text-secondary)"
@@ -36,7 +38,9 @@ function TodoItem({ todo, onToggle, onDelete }) {
         }}
       >
         {todo.completed && (
-          <span style={{ color: "white", fontSize: "12px" }}>✓</span>
+          <CheckIcon
+            style={{ width: "14px", height: "14px", color: "white" }}
+          />
         )}
       </button>
 
@@ -60,13 +64,13 @@ function TodoItem({ todo, onToggle, onDelete }) {
           color: "var(--error)",
           cursor: "pointer",
           opacity: 0.7,
-          fontSize: "1.2rem",
+          padding: "var(--spacing-sm)",
           transition: "opacity 0.2s ease",
         }}
         onMouseEnter={(e) => (e.target.style.opacity = 1)}
         onMouseLeave={(e) => (e.target.style.opacity = 0.7)}
       >
-        ×
+        <TrashIcon style={{ width: "20px", height: "20px" }} />
       </button>
     </div>
   );

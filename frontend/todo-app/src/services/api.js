@@ -1,4 +1,4 @@
-const API_BASE_URL = "/api";
+const API_BASE_URL = "http://localhost:5052/api";
 
 const handleResponse = async (response) => {
   const data = await response.json();
@@ -9,25 +9,25 @@ const handleResponse = async (response) => {
 };
 
 export const todoApi = {
-  // 获取所有待办事项
+  //display todoTask
   getAllTodos: async () => {
-    const response = await fetch(`${API_BASE_URL}/`);
+    const response = await fetch(`${API_BASE_URL}/get-todo`);
     return handleResponse(response);
   },
 
-  // 添加新待办事项
+  // add new todo Task
   addTodo: async (value) => {
     const response = await fetch(`${API_BASE_URL}/add-todo`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ value }),
+      body: JSON.stringify({ value, isCompleted: false }),
     });
     return handleResponse(response);
   },
 
-  // 更新待办事项状态
+  // Update the complete status of todo Task
   updateTodo: async (id, isCompleted) => {
     const response = await fetch(`${API_BASE_URL}/update-todo/${id}`, {
       method: "POST",
@@ -39,36 +39,10 @@ export const todoApi = {
     return handleResponse(response);
   },
 
-  // 删除待办事项
+  // Delete todo Task with specifed id
   deleteTodo: async (id) => {
     const response = await fetch(`${API_BASE_URL}/del-todo/${id}`, {
-      method: "POST",
-    });
-    return handleResponse(response);
-  },
-};
-
-export const authApi = {
-  // 用户注册
-  register: async (username, password) => {
-    const response = await fetch(`${API_BASE_URL}/auth/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    });
-    return handleResponse(response);
-  },
-
-  // 用户登录
-  login: async (username, password) => {
-    const response = await fetch(`${API_BASE_URL}/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
+      method: "DELETE",
     });
     return handleResponse(response);
   },

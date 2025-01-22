@@ -1,19 +1,16 @@
 /**
  * Todo controller
- * Handles business logic for todo operations
- * @module controllers/todo
+
  */
 
 const Todo = require("../models/todo");
 
-/**
- * Todo Controller class
- * Contains methods for CRUD operations on todos
- */
 class TodoController {
   /**
-   * Get all todo items
-   */
+     * Get all todo items
+     * @async
+
+     */
   async getAllTodos(req, res) {
     try {
       const todos = await Todo.find().sort({ createdAt: -1 });
@@ -32,7 +29,9 @@ class TodoController {
 
   /**
    * Create a new todo item
-
+   * @async
+   * @param {import('express').Request} req - Express request object
+   * @param {import('express').Response} res - Express response object
    */
   async createTodo(req, res) {
     try {
@@ -63,6 +62,9 @@ class TodoController {
 
   /**
    * Update todo status
+   * @async
+   * @param {import('express').Request} req - Express request object
+   * @param {import('express').Response} res - Express response object
    */
   async updateTodoStatus(req, res) {
     try {
@@ -92,9 +94,9 @@ class TodoController {
   }
 
   /**
-   * Delete a todo item
+     * Delete a todo item
 
-   */
+     */
   async deleteTodo(req, res) {
     try {
       const todo = await Todo.findById(req.params.id);

@@ -1,3 +1,8 @@
+/**
+ * Database configuration module
+
+ */
+
 const mongoose = require("mongoose");
 require("dotenv").config();
 
