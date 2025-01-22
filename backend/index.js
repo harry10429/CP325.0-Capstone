@@ -1,7 +1,5 @@
 /**
  * Server entry point
- * Sets up Express server with middleware and routes
- * @module server
  */
 
 const express = require("express");
@@ -69,12 +67,12 @@ const server = app.listen(port, "0.0.0.0", () => {
 
 // Handle uncaught exceptions
 process.on("uncaughtException", (error) => {
-  console.error("❌ Uncaught Exception:", error);
+  console.error("Uncaught Exception:", error);
   process.exit(1);
 });
 
 // Handle unhandled promise rejections
 process.on("unhandledRejection", (error) => {
-  console.error("❌ Unhandled Rejection:", error);
+  console.error("Unhandled Rejection:", error);
   process.exit(1);
 });
