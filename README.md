@@ -1,6 +1,6 @@
 # CP325.0-Capstone
 
-This is a simple todolist project with React-based frontend with node.js envirnment in backend
+This project is simple example of a full-stack web application showing todoList. Frontend is react-based framework with node.js environment in the backend
 
 Frontend
 
